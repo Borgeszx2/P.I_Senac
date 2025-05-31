@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Documentos</title>
+    <link rel="stylesheet" href=".css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sistema de Organização de Documentos</h1>
+            <div class="user-info">
+                <span id="current-sector">Setor: Não logado</span>
+                <button id="login-btn">Login</button>
+            </div>
+        </header>
+
+        <!-- Modal de Login -->
+        <div id="login-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Login</h2>
+                <form id="login-form">
+                    <label for="username">Usuário:</label>
+                    <input type="text" id="username" required>
+                    
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" required>
+                    
+                    <label for="sector">Setor:</label>
+                    <select id="sector" required>
+                        <option value="">Selecione...</option>
+                        <option value="RH">RH</option>
+                        <option value="Departamento Pessoal">Departamento Pessoal</option>
+                        <option value="Administrativo">Administrativo</option>
+                        <option value="Caixa">Caixa</option>
+                        <option value="Recebimento">Recebimento</option>
+                        <option value="Expedição">Expedição</option>
+                        <option value="Depósitos">Depósitos</option>
+                        <option value="Assistência Técnica">Assistência Técnica</option>
+                        <option value="Almoxarifado">Almoxarifado</option>
+                    </select>
+                    
+                    <button type="submit">Entrar</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Área Principal -->
+        <main>
+            <aside class="sidebar">
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="#" class="nav-link" data-section="all">Todos os Documentos</a></li>
+                    <li><a href="#" class="nav-link" data-section="RH">RH</a></li>
+                    <li><a href="#" class="nav-link" data-section="Departamento Pessoal">Departamento Pessoal</a></li>
+                    <li><a href="#" class="nav-link" data-section="Administrativo">Administrativo</a></li>
+                    <li><a href="#" class="nav-link" data-section="Caixa">Caixa</a></li>
+                    <li><a href="#" class="nav-link" data-section="Recebimento">Recebimento</a></li>
+                    <li><a href="#" class="nav-link" data-section="Expedição">Expedição</a></li>
+                    <li><a href="#" class="nav-link" data-section="Depósitos">Depósitos</a></li>
+                    <li><a href="#" class="nav-link" data-section="Assistência Técnica">Assistência Técnica</a></li>
+                    <li><a href="#" class="nav-link" data-section="Almoxarifado">Almoxarifado</a></li>
+                </ul>
+            </aside>
+
+            <section class="content">
+                <div class="document-actions">
+                    <button id="add-doc-btn">Adicionar Documento</button>
+                    <div class="search-box">
+                        <input type="text" id="search-input" placeholder="Buscar documentos...">
+                        <button id="search-btn">Buscar</button>
+                    </div>
+                </div>
+
+                <!-- Modal para adicionar documento -->
+                <div id="doc-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>Novo Documento</h2>
+                        <form id="document-form">
+                            <label for="doc-title">Título:</label>
+                            <input type="text" id="doc-title" required>
+                            
+                            <label for="doc-sector">Setor:</label>
+                            <select id="doc-sector" required>
+                                <!-- Opções serão preenchidas via JS -->
+                            </select>
+                            
+                            <label for="doc-file">Arquivo:</label>
+                            <input type="file" id="doc-file" required>
+                            
+                            <label for="doc-tags">Tags (separadas por vírgula):</label>
+                            <input type="text" id="doc-tags">
+                            
+                            <button type="submit">Salvar</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="documents-grid" id="documents-container">
+                    <!-- Documentos serão carregados aqui via JavaScript -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src=".js"></script>
+</body>
+</html>
